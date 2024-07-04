@@ -13,6 +13,9 @@ public class UserServiceTest {
 
     public void setUp(){
         userService = new UserService();
+        userService.createUser(0L, "Diego");
+        userService.createUser(2L, "Diego2");
+
     }
 
     @DisplayName("given an user we want to create, we expected it be the same to other created") // explain test
@@ -48,12 +51,11 @@ public class UserServiceTest {
     }
 
     @Test
-    public void test4() {
-        UserDto expected = new UserDto(1L, "Diego");
+    public void test4() {f
+        UserDto expected = new UserDto(0L, "Diego");
         //UserService userService = new UserService();
-        userService.createUser(1L, "Diego");
 
-        final UserDto result = userService.getUser(1L);
+        final UserDto result = userService.getUser(0L);
         Assertions.assertEquals(expected, result);
     }
 
